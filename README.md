@@ -9,6 +9,7 @@ Loss function:
 
 
 Reinforcement learning rewards good behavior, and penalizes bad. Successful finetuning with RL requires that our rewards increase with time.
+
 ![image](https://github.com/dwight-nwaigwe/finetune-LLM-with-RL/blob/main/reward.png)
 
 
