@@ -1,0 +1,9 @@
+datasets==3.2.0 
+transformers==4.47.1 
+trl==0.14.0 
+peft==0.14.0 
+accelerate==1.2.1 
+wandb==0.22.3 --progress-bar off
+hf_transfer
+flash-attn --no-build-isolation --progress-bar off
+bitsandbytes --prefer-binary --extra-index-url https://download.pytorch.org/whl/cu124
