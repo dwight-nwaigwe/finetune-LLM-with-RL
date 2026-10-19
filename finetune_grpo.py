@@ -1,10 +1,3 @@
-!pip install -qqq datasets==3.2.0 transformers==4.47.1 trl==0.14.0 peft==0.14.0 accelerate==1.2.1 wandb==0.22.3 --progress-bar off
-!pip install hf_transfer
-!pip install -qqq flash-attn --no-build-isolation --progress-bar off
-!pip install bitsandbytes --prefer-binary --extra-index-url https://download.pytorch.org/whl/cu124
-
-
-
 import os
 import torch
 from datasets import load_dataset
