@@ -5,7 +5,7 @@ from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from trl import GRPOConfig, GRPOTrainer
 import wandb
-
+from transformers import pipeline
 
 
 # Set CUDA home explicitly
@@ -29,11 +29,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 
-
-
 tokenizer = AutoTokenizer.from_pretrained(model_id)
-
-
 
 
 # Extract the inner PreTrainedModel if wrapped
@@ -92,3 +88,39 @@ trainer = GRPOTrainer(
 trainer.train()
 #wandb.init(project="GRPO")
 wandb.finish()  # Ensures all epoch logs/charts flush to W&B
+
+prompt = """
+# A long document about the Cat
+
+The cat (Felis catus), also referred to as the domestic cat or house cat, is a small 
+domesticated carnivorous mammal. It is the only domesticated species of the family Felidae.
+Advances in archaeology and genetics have shown that the domestication of the cat occurred
+in the Near East around 7500 BC. It is commonly kept as a pet and farm cat, but also ranges
+freely as a feral cat avoiding human contact. It is valued by humans for companionship and
+its ability to kill vermin. Its retractable claws are adapted to killing small prey species
+such as mice and rats. It has a strong, flexible body, quick reflexes, and sharp teeth,
+and its night vision and sense of smell are well developed. It is a social species,
+but a solitary hunter and a crepuscular predator. Cat communication includes
+vocalizations—including meowing, purring, trilling, hissing, growling, and grunting—as
+well as body language. It can hear sounds too faint or too high in frequency for human ears,
+such as those made by small mammals. It secretes and perceives pheromones.
+"""
+
+messages = [    {"role": "user", "content": prompt}]
+
+# Generate text
+# use the model and tokenizer we defined earlier
+generator = pipeline("text-generation", model=model, tokenizer=tokenizer)
+
+generate_kwargs = {
+    "max_new_tokens": 256,
+    "do_sample": True,
+    "temperature": 0.5,
+    "min_p": 0.1,
+}
+
+generated_text = generator(messages, **generate_kwargs)
+print(generated_text)
+
+
+    
