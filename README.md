@@ -39,3 +39,26 @@ The cat is a fascinating and complex creature. Here's a short summary of its his
 * The domestic cat
 ```
 
+
+Output of original model (175 words):
+```
+The cat is a fascinating species that has captivated human imagination for centuries. Here's a detailed explanation of its history,
+characteristics, behavior, and significance:
+
+**History**
+
+The domestication of the cat dates back to around 7,500 years ago, when humans began to domesticate wild animals. The earliest recorded evidence
+of cat domestication comes from the ancient Mesopotamian civilization, around 3000 BC. The earliest known domesticated cat, Felis silvestris lybica,
+ was domesticated in the Middle East around 7,500 BC.
+
+**Characteristics**
+
+* **Domestication**: The cat's domestication was gradual, with early humans adopting the cat as a companion animal. Over time, the cat became more
+domesticated, and it evolved into a distinct species.
+* **Physical Characteristics**: The cat has a slender, elongated body with a short, rounded tail. Its coat is short and dense, with a soft, white
+undercoat. The cat's eyes are large, round, and dark, with vertical pupils.
+* **Behavior**: The cat is a solitary hunter, but it can be trained to hunt small prey, such as rodents and birds. It has a keen sense of smell and
+is capable
+```
+
+Our finetuned RL model is barely shorter for this example.
